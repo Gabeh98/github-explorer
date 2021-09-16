@@ -1,5 +1,5 @@
 const path = require("path");
-
+const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: path.resolve(__dirname, "src", "index.jsx"),
@@ -13,4 +13,9 @@ module.exports = {
   module: {
     rules: [{ test: /\.jsx$/, exclude: /node_modules/, use: "babel-loader" }],
   },
+  plugins: [
+    new htmlWebpackPlugin({
+      template: path.resolve(__dirname, "public", "index.html"),
+    }),
+  ],
 };
