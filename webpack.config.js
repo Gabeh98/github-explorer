@@ -10,6 +10,13 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
+    compress: true,
+    port: 9000,
+  },
   module: {
     rules: [{ test: /\.jsx$/, exclude: /node_modules/, use: "babel-loader" }],
   },
